@@ -2,6 +2,7 @@
 import pandas as pd
 import plotly.express as px
 import tabela_utils
+from pathlib import Path
 
 def faztudo(tabela : pd.DataFrame):
     tabela = tabela_utils.soma_por_categoria(tabela, 'MÊS', 'DECOLAGENS')
@@ -12,7 +13,9 @@ def faztudo(tabela : pd.DataFrame):
 def criar_grafico_barras_data_pico(Ano_selecionado, Mes_selecionado):
     # ---------------------------------------------- Lendo dataset ----------------------------------------------
     print('1 - Lendo dataset...') # Feedback
-    dados = pd.read_csv('Dashboard-Oficial\data\ANAC20XX-13-14-15.csv', sep = ';', encoding = 'latin') # Encoding resolve problema da acentuação
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    csv_path = BASE_DIR / "data" / "ANAC20XX-13-14-15.csv"
+    dados = pd.read_csv(csv_path, sep=';', encoding='latin')
 
     # --------------------------------------- Manipulando dados necessarios---------------------------------------
     print('1 - Filtrando os dados...') # Feedback

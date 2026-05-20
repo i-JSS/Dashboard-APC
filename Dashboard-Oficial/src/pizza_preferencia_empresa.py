@@ -4,11 +4,13 @@ import plotly.express as px
 import tabela_utils
 from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+csv_path = BASE_DIR / "data" / "ANAC20XX-13-14-15.csv"
 
 data = Path('Dashboard-Oficial/data')
 # ---------------------------------------------- Lendo dataset ----------------------------------------------
 print('4 - Lendo dataset...') # Feedback
-csv = pd.read_csv('Dashboard-Oficial\data\ANAC20XX-13-14-15.csv', sep = ';', encoding = 'latin') # Encoding resolve problema da acentuação
+csv = pd.read_csv(csv_path, sep = ';', encoding = 'latin') # Encoding resolve problema da acentuação
 
 
 def criar_setores(ano = '2013', minimo = 1500000):

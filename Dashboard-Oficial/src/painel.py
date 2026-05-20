@@ -468,4 +468,4 @@ def interatividade_grafico_pizza_tipo_carga(value): # Muda os anos que serão us
 
 # ------------------------------------------ Colocando dash no ar ------------------------------------------
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)
